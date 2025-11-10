@@ -283,7 +283,7 @@ body{
   <div class="container">
     <div class="grid">
       <div class="copy reveal">
-        <div class="kicker">Chirurgia vascolare</div>
+        <div class="kicker">Chirurgo vascolare ed endovascolare specialista del piede diabetico</div>
         <h1>{{ page.title }}</h1>
         <p class="sub">{{ page.subtitle }}</p>
 
