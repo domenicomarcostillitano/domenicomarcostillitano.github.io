@@ -1,19 +1,10 @@
-
-
----
-layout: null
-permalink: /curriculum/
-title: "Curriculum Vitae — Dr. Domenico Marco Stillitano"
-description: "Curriculum professionale del Dr. Domenico Marco Stillitano, chirurgo vascolare ed endovascolare, specialista del piede diabetico."
----
-
 <!doctype html>
 <html lang="it">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>{{ page.title }}</title>
-  <meta name="description" content="{{ page.description }}" />
+  <title>Curriculum Vitae — Dr. Domenico Marco Stillitano</title>
+  <meta name="description" content="Curriculum professionale del Dr. Domenico Marco Stillitano, chirurgo vascolare ed endovascolare, specialista del piede diabetico.">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
@@ -25,7 +16,7 @@ description: "Curriculum professionale del Dr. Domenico Marco Stillitano, chirur
     body{margin:0; color:var(--ink); background:#fff; line-height:1.6; font-family:"Plus Jakarta Sans", Inter, ui-sans-serif, system-ui}
     .container{width:min(1100px,90%); margin-inline:auto}
 
-    /* Header centrato come home */
+    /* Header centrato */
     .site-header{position:sticky; top:0; z-index:50; height:64px; display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,.75); backdrop-filter:blur(10px); border-bottom:1px solid rgba(15,23,42,.08)}
     .site-header nav{display:flex; gap:.9rem}
     .site-header nav a{text-decoration:none; color:var(--ink); padding:.45rem .9rem; border-radius:999px; font-weight:600; border:1px solid transparent}
@@ -53,22 +44,15 @@ description: "Curriculum professionale del Dr. Domenico Marco Stillitano, chirur
     .btn{display:inline-flex; align-items:center; justify-content:center; gap:.45rem; text-decoration:none; padding:.8rem 1.05rem; font-weight:700; border-radius:999px; border:1px solid #cfe3ff; background:linear-gradient(180deg,var(--soft-blue-1),var(--soft-blue-2)); color:var(--blue-ink); box-shadow:0 6px 18px rgba(15,23,42,.06)}
     .btn:hover{transform:translateY(-2px); box-shadow:0 10px 26px rgba(15,23,42,.10)}
 
-    /* Tabella rapida */
+    /* DL e liste */
     .dl{display:grid; grid-template-columns:1fr 2fr; gap:.35rem .8rem}
     .dl dt{color:var(--muted)}
     .dl dd{margin:0; font-weight:600}
-
-    /* Lista pubblicazioni */
-    .pubs{list-style: none; padding-left: 0}
+    .pubs{list-style:none; padding-left:0}
     .pubs li{margin:.35rem 0}
-    .pubs a{text-decoration: none}
+    .pubs a{text-decoration:none}
 
-    /* Print */
-    @media print{
-      .site-header, .actions{display:none}
-      body{background:#fff}
-      .card{box-shadow:none}
-    }
+    @media print{ .site-header, .actions{display:none} .card{box-shadow:none} }
   </style>
 </head>
 <body>
@@ -90,9 +74,8 @@ description: "Curriculum professionale del Dr. Domenico Marco Stillitano, chirur
       <h1>Curriculum Vitae</h1>
       <p class="lead">Dr. Domenico Marco Stillitano — chirurgo vascolare ed endovascolare, specialista del piede diabetico.</p>
       <div class="actions">
-        <a class="btn" href="/assets/pdf/curriculum_stillitano.pdf" download>
-          Scarica Curriculum (PDF)
-        </a>
+        <!-- Link PDF statico -->
+        <a class="btn" href="/assets/pdf/curriculum_stillitano.pdf" download>Scarica Curriculum (PDF)</a>
         <a class="btn" href="/">Torna alla Home</a>
       </div>
     </div>
@@ -100,15 +83,16 @@ description: "Curriculum professionale del Dr. Domenico Marco Stillitano, chirur
 
   <main class="section">
     <div class="container cv-grid">
+
       <!-- Colonna sinistra -->
       <div class="card">
         <h2>Esperienza</h2>
         <div class="item">
           <div class="when">01/2025 — Attuale · Sesto San Giovanni (MI) (Italia)</div>
-          <div class="what">Dirigente medico Chirurgia Vascolare ed Endovascolare U.O. Piede Diabetico</div>
+          <div class="what">Dirigente medico di Chirurgia Vascolare ed Endovascolare U.O. Piede Diabetico</div>
           <div class="where">IRCCS MultiMedica Sesto San Giovanni</div>
         </div>
-          <div class="item">
+        <div class="item">
           <div class="when">09/2023 — 01/2025 · Monza (Italia)</div>
           <div class="what">Dirigente medico in Chirurgia Vascolare ed Endovascolare (funzione di Aiuto Primario)</div>
           <div class="where">Policlinico di Monza</div>
