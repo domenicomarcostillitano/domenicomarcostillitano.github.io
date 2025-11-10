@@ -194,20 +194,20 @@ body > h1:first-of-type{ display:none !important; }
 
     <div class="cards">
       <article class="card reveal">
-        <h3>Consulenza e valutazione referti online</h3>
-        <p>Interpretazione esami e referti…</p>
+        <h3>Consulenza specialistica e valutazione referti online</h3>
+        <p>Spiegazione e interpretazione esami di laboratorio e referti medici per fornire consigli di salute personalizzati, raccomandazioni e suggerimenti sullo stile di vita nel paziente vascolare</p>
         <a class="btn btn-primary" href="/aree/referti-online/">Approfondisci</a>
       </article>
 
       <article class="card reveal">
         <h3>Visita e consulto in videochiamata</h3>
-        <p>Ideale per pazienti con difficoltà…</p>
+        <p>Un consulto via webcam può essere un’ottima soluzione in caso di paziente anziano, allettato o con difficoltà ambulatorie. La telemedicina è ormai un prezioso strumento a vantaggio del paziente per il risparmio di tempo ed energia</p>
         <a class="btn btn-primary" href="/prenota/#video">Approfondisci</a>
       </article>
 
       <article class="card reveal">
         <h3>Piano terapeutico personalizzato</h3>
-        <p>Strategia medico-chirurgica…</p>
+        <p>Lo Studio offre ai pazienti, la possibilità di scegliere un piano terapeutico personalizzabile, basato sulle reali esigenze , necessità ed aspettative senza mai perdere di vista il fine primario delle terapie: la salute</p>
         <a class="btn btn-primary" href="/aree/piano-terapeutico/">Approfondisci</a>
       </article>
     </div>
