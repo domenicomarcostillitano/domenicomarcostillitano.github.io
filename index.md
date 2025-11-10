@@ -40,7 +40,7 @@ body{
   margin-inline:auto;
 }
 
-/* Header */
+/* Header (ghost sticky) */
 .site-header{
   position:fixed;
   inset:0 0 auto 0;
@@ -57,6 +57,10 @@ body{
 }
 .site-header.is-stuck{
   transform:translateY(0);
+}
+.site-header .brand{
+  font-weight:800;
+  color:var(--ink-2);
 }
 .site-header nav{
   margin-left:auto;
@@ -104,7 +108,6 @@ body{
   font-weight:700;
   color:var(--accent-2);
 }
-
 .hero h1{
   font-family:Merriweather,serif;
   font-size:clamp(2.2rem,4vw,3.2rem);
@@ -164,7 +167,7 @@ body{
   object-fit:cover;
 }
 
-/* Pill menu */
+/* Pill nav */
 .pill-menu-wrapper{
   position:sticky;
   top:0;
@@ -267,6 +270,7 @@ body{
 <body>
 
 <header class="site-header" id="siteHeader">
+  <div class="brand">Dr. Stillitano</div>
   <nav>
     <a href="/aree-di-competenza/">Aree</a>
     <a href="#servizi">Servizi</a>
@@ -275,17 +279,13 @@ body{
   </nav>
 </header>
 
-
 <section class="hero">
   <div class="container">
     <div class="grid">
       <div class="copy reveal">
         <div class="kicker">Chirurgia vascolare</div>
-
-        <!-- ✅ IL TITOLO TORNA -->
         <h1>{{ page.title }}</h1>
-
-        <p class="sub">Specializzato in chirurgia vascolare ed endovascolare – piede diabetico</p>
+        <p class="sub">{{ page.subtitle }}</p>
 
         <div class="cta">
           <a class="btn btn-primary" href="#prenota">Prenota online</a>
@@ -294,8 +294,96 @@ body{
       </div>
 
       <figure class="hero-visual reveal">
-        <img src="/assets/images/foto sito.jpg" alt="">
+        <img src="/assets/images/foto sito.jpg" alt="Foto Dr. Stillitano">
       </figure>
     </div>
   </div>
 </section>
+
+<div class="pill-menu-wrapper">
+  <div class="container pill-menu">
+    <a class="pill" href="/aree-di-competenza/">Aree di competenza</a>
+    <a class="pill" href="#servizi">Servizi</a>
+    <a class="pill" href="#contatti">Contatti</a>
+    <a class="pill" href="#prenota">Prenota</a>
+  </div>
+</div>
+
+<section class="section" id="servizi">
+  <div class="container">
+    <h2 class="reveal">Prenditi cura della tua salute</h2>
+    <p class="lead reveal">Consulenze e visite specialistiche di <strong>chirurgia vascolare</strong>…</p>
+
+    <div class="cards">
+      <article class="card reveal">
+        <h3>Consulenza e valutazione referti online</h3>
+        <p>Interpretazione esami e referti…</p>
+        <a class="btn btn-primary" href="/aree/referti-online/">Approfondisci</a>
+      </article>
+
+      <article class="card reveal">
+        <h3>Visita e consulto in videochiamata</h3>
+        <p>Ideale per pazienti con difficoltà…</p>
+        <a class="btn btn-primary" href="/prenota/#video">Approfondisci</a>
+      </article>
+
+      <article class="card reveal">
+        <h3>Piano terapeutico personalizzato</h3>
+        <p>Strategia medico-chirurgica…</p>
+        <a class="btn btn-primary" href="/aree/piano-terapeutico/">Approfondisci</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section contact" id="contatti">
+  <div class="container grid">
+    <div class="box reveal">
+      <h2>Contatta il Dr. Stillitano</h2>
+      <div>
+        <strong>Politerapico di Monza</strong><br>Via Gerolamo Borgazzi, 87B — 20900 Monza (MB)
+      </div>
+      <div><strong>Tel:</strong> <a href="tel:+393758707109">+39 375 870 7109</a></div>
+      <div><strong>Email:</strong> <a href="mailto:domenicomarco.stillitano@gmail.com">domenicomarco.stillitano@gmail.com</a></div>
+    </div>
+
+    <div class="box reveal" id="prenota">
+      <h2>Prenota</h2>
+      <p class="lead">Chiama o WhatsApp per disponibilità.</p>
+
+      <div class="cta">
+        <a class="btn btn-primary" href="tel:+393758707109">Chiama ora</a>
+        <a class="btn btn-secondary" href="https://wa.me/393758707109" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  const header = document.getElementById('siteHeader');
+  const onScroll = ()=>{
+    header.classList.toggle('is-stuck', (window.scrollY || window.pageYOffset) > 50);
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  const reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.classList.add('is-in');
+          io.unobserve(e.target);
+        }
+      })
+    },{ threshold: .1 });
+    reveals.forEach(el=> io.observe(el));
+  } else {
+    reveals.forEach(el=> el.classList.add('is-in'));
+  }
+})();
+</script>
+
+</body>
+</html>
