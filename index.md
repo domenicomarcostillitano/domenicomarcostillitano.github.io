@@ -296,7 +296,7 @@ body{
       </div>
 
       <figure class="hero-visual reveal">
-        <img src="/assets/images/hero.jpg" alt="Foto Dr. Stillitano">
+        <img src="assets/images/foto sito.jpg" alt="Foto Dr. Stillitano">
       </figure>
     </div>
   </div>
