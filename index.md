@@ -230,7 +230,6 @@ body > h1:first-of-type{ display:none !important; }
 <body>
 
 <header class="site-header" id="siteHeader">
-  <div class="brand">Dr. Stillitano</div>
   <nav>
     <a href="/aree-di-competenza/">Aree</a>
     <a href="#servizi">Servizi</a>
