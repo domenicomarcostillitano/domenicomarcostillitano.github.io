@@ -158,7 +158,7 @@ body > h1:first-of-type{ display:none !important; }
 <header class="site-header" id="siteHeader">
   <nav aria-label="Navigazione principale">
     <a href="/aree-di-competenza/">Aree di competenza</a>
-    <a href="/Curriculum-Vitae/">Curriculum Vitae</a>
+    <a href="/curriculum/">Curriculum Vitae</a>
     <a href="#contatti">Contatti</a>
     <a href="#prenota">Prenota</a>
   </nav>
