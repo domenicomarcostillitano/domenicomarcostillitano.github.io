@@ -157,8 +157,8 @@ body > h1:first-of-type{ display:none !important; }
 <!-- Header con sola nav centrata -->
 <header class="site-header" id="siteHeader">
   <nav aria-label="Navigazione principale">
-    <a href="/aree-di-competenza/">Aree</a>
-    <a href="#servizi">Servizi</a>
+    <a href="/aree-di-competenza/">Aree di competenza</a>
+    <a href="/Curriculum-Vitae/">Curriculum Vitae</a>
     <a href="#contatti">Contatti</a>
     <a href="#prenota">Prenota</a>
   </nav>
