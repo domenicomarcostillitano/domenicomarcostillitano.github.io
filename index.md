@@ -4,7 +4,6 @@ title: "Dr. Domenico Marco Stillitano"
 description: "Chirurgia vascolare ed endovascolare – Monza e Milano"
 ---
 
-<!DOCTYPE html>
 <html lang="it">
 <head>
 <meta charset="utf-8" />
@@ -280,14 +279,13 @@ body{
   </nav>
 </header>
 
-
 <section class="hero">
   <div class="container">
     <div class="grid">
       <div class="copy reveal">
         <div class="kicker">Chirurgia vascolare</div>
         <h1>{{ page.title }}</h1>
-        <p class="sub">Specializzato in chirurgia vascolare ed endovascolare – piedi diabetico</p>
+        <p class="sub">{{ page.subtitle }}</p>
 
         <div class="cta">
           <a class="btn btn-primary" href="#prenota">Prenota online</a>
@@ -296,12 +294,11 @@ body{
       </div>
 
       <figure class="hero-visual reveal">
-        <img src="assets/images/foto sito.jpg" alt="Foto Dr. Stillitano">
+        <img src="/assets/images/hero.jpg" alt="Foto Dr. Stillitano">
       </figure>
     </div>
   </div>
 </section>
-
 
 <div class="pill-menu-wrapper">
   <div class="container pill-menu">
@@ -312,13 +309,10 @@ body{
   </div>
 </div>
 
-
 <section class="section" id="servizi">
   <div class="container">
     <h2 class="reveal">Prenditi cura della tua salute</h2>
-    <p class="lead reveal">
-      Consulenze e visite specialistiche di <strong>chirurgia vascolare</strong>…
-    </p>
+    <p class="lead reveal">Consulenze e visite specialistiche di <strong>chirurgia vascolare</strong>…</p>
 
     <div class="cards">
       <article class="card reveal">
@@ -342,14 +336,12 @@ body{
   </div>
 </section>
 
-
 <section class="section contact" id="contatti">
   <div class="container grid">
     <div class="box reveal">
       <h2>Contatta il Dr. Stillitano</h2>
       <div>
-        <strong>Politerapico di Monza</strong><br>
-        Via Gerolamo Borgazzi, 87B — 20900 Monza (MB)
+        <strong>Politerapico di Monza</strong><br>Via Gerolamo Borgazzi, 87B — 20900 Monza (MB)
       </div>
       <div><strong>Tel:</strong> <a href="tel:+393758707109">+39 375 870 7109</a></div>
       <div><strong>Email:</strong> <a href="mailto:domenicomarco.stillitano@gmail.com">domenicomarco.stillitano@gmail.com</a></div>
@@ -367,9 +359,7 @@ body{
   </div>
 </section>
 
-
 <script>
-/* Sticky header + reveal */
 (function(){
   const header = document.getElementById('siteHeader');
   const onScroll = ()=>{
@@ -378,17 +368,20 @@ body{
   onScroll();
   window.addEventListener('scroll', onScroll, {passive:true});
 
-  /* reveal */
-  const els = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){
-        e.target.classList.add('is-in');
-        io.unobserve(e.target);
-      }
-    })
-  }, {threshold:.1});
-  els.forEach(el=> io.observe(el));
+  const reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.classList.add('is-in');
+          io.unobserve(e.target);
+        }
+      })
+    },{ threshold: .1 });
+    reveals.forEach(el=> io.observe(el));
+  } else {
+    reveals.forEach(el=> el.classList.add('is-in'));
+  }
 })();
 </script>
 
