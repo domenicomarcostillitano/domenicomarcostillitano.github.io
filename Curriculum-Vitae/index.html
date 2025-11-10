@@ -17,7 +17,7 @@ description: "Curriculum professionale del Dr. Domenico Marco Stillitano, chirur
     :root{
       --accent:#0ea5e9; --accent-2:#10b981; --ink:#1e293b; --ink-2:#0f172a; --muted:#637287; --line:#e5e7eb;
       --radius:1rem; --shadow:0 10px 30px rgba(0,0,0,.08);
-      --soft-blue-1:#f6faff; --soft-blue-2:#eaf3ff; --blue-ink:#0b2f57;
+      --soft-blue-1:#f6faff; --soft-blue-2:#eaf3ff; --blue-ink:#0b2f57; --card:#fff;
     }
     *{box-sizing:border-box}
     body{margin:0; color:var(--ink); background:#fff; line-height:1.6; font-family:"Plus Jakarta Sans", Inter, ui-sans-serif, system-ui}
@@ -39,7 +39,7 @@ description: "Curriculum professionale del Dr. Domenico Marco Stillitano, chirur
     .cv-grid{display:grid; gap:1.25rem}
     @media(min-width:900px){.cv-grid{grid-template-columns:1.15fr .85fr}}
     .section{padding:1rem 0}
-    .card{background:#fff; border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:1.25rem}
+    .card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:1.25rem}
     .card h2{font-size:1.25rem; margin:.25rem 0 .75rem; font-family:Merriweather,serif; color:var(--ink-2)}
     .item{display:grid; gap:.25rem; padding:.6rem .6rem .6rem 1rem; border-left:3px solid rgba(14,165,233,.35); margin:.25rem 0}
     .item .when{font-size:.9rem; color:var(--muted); font-weight:600}
@@ -55,6 +55,11 @@ description: "Curriculum professionale del Dr. Domenico Marco Stillitano, chirur
     .dl{display:grid; grid-template-columns:1fr 2fr; gap:.35rem .8rem}
     .dl dt{color:var(--muted)}
     .dl dd{margin:0; font-weight:600}
+
+    /* Lista pubblicazioni */
+    .pubs{list-style: none; padding-left: 0}
+    .pubs li{margin:.35rem 0}
+    .pubs a{text-decoration: none}
 
     /* Print */
     @media print{
@@ -95,45 +100,59 @@ description: "Curriculum professionale del Dr. Domenico Marco Stillitano, chirur
       <div class="card">
         <h2>Esperienza</h2>
         <div class="item">
-          <div class="when">2021 — oggi</div>
-          <div class="what">Chirurgo vascolare ed endovascolare</div>
-          <div class="where">Attività clinica e ambulatoriale — Monza e Milano</div>
+          <div class="when">09/2023 — Attuale · Monza (Italia)</div>
+          <div class="what">Dirigente medico in Chirurgia Vascolare ed Endovascolare</div>
+          <div class="where">Policlinico di Monza</div>
         </div>
         <div class="item">
-          <div class="when">2017 — 2021</div>
-          <div class="what">Specializzazione in Chirurgia Vascolare</div>
-          <div class="where">—</div>
+          <div class="when">05/2023 — 09/2023 · Mannheim (Germania)</div>
+          <div class="what">Dirigente medico in Chirurgia Vascolare ed Endovascolare (funzione di Aiuto Primario)</div>
+          <div class="where">Theresienkrankenhaus — Reparto di Chirurgia Vascolare ed Endovascolare</div>
         </div>
         <div class="item">
-          <div class="when">…</div>
-          <div class="what">Altre esperienze rilevanti</div>
-          <div class="where">—</div>
+          <div class="when">10/2022 — 09/2023 · Mannheim (Germania)</div>
+          <div class="what">Specializzato in Chirurgia Vascolare ed Endovascolare — Facente funzioni Aiuto Primario</div>
+          <div class="where">Theresienkrankenhaus — Reparto di Chirurgia Vascolare ed Endovascolare</div>
+        </div>
+        <div class="item">
+          <div class="when">06/2021 — Attuale · Mannheim (Germania)</div>
+          <div class="what">Specializzando in Flebologia</div>
+          <div class="where">Theresienkrankenhaus — Reparto di Chirurgia Vascolare ed Endovascolare</div>
+        </div>
+        <div class="item">
+          <div class="when">06/2015 — 06/2021 · Mannheim (Germania)</div>
+          <div class="what">Specializzando in Chirurgia Vascolare ed Endovascolare</div>
+          <div class="where">Theresienkrankenhaus — Reparto di Chirurgia Vascolare ed Endovascolare</div>
+        </div>
+        <div class="item">
+          <div class="when">08/2013 — 02/2014 · Reggio Calabria (Italia)</div>
+          <div class="what">Servizio di Continuità Assistenziale Territoriale</div>
+          <div class="where">A.S.P. di Reggio Calabria</div>
+        </div>
+        <div class="item">
+          <div class="when">05/2013 — 02/2014 · Catanzaro (Italia)</div>
+          <div class="what">Servizio di Continuità Assistenziale Territoriale</div>
+          <div class="where">A.S.P. di Catanzaro</div>
         </div>
 
-        <h2>Formazione</h2>
-        <div class="item">
-          <div class="when">2010 — 2016</div>
-          <div class="what">Laurea in Medicina e Chirurgia</div>
-          <div class="where">—</div>
-        </div>
-        <div class="item">
-          <div class="when">Abilitazione</div>
-          <div class="what">Iscrizione all’Ordine dei Medici</div>
-          <div class="where">—</div>
-        </div>
+        <h2>Attività chirurgica vascolare</h2>
+        <p>
+          Oltre 3000 interventi come primo operatore su flebopatie e arteriopatie degli arti superiori e inferiori,
+          patologia carotidea e aorta addominale, in chirurgia tradizionale ed endovascolare. In ambito flebologico:
+          ricostruzioni del sistema venoso superficiale, crossectomie, flebectomie ed estrazioni totali di vena grande safena
+          in regime ambulatoriale; procedure endovenose, scleroterapia complementare e chirurgia mini-invasiva. Interventi
+          sul sistema venoso profondo (ricostruttivi/correttivi), trombectomie superficiali e profonde, trattamento di
+          angiodisplasie (malformazioni vascolari congenite). Trattamento e prevenzione del piede diabetico.
+        </p>
 
-        <h2>Competenze cliniche</h2>
-        <ul>
-          <li>Trattamento endovascolare e chirurgico delle arteriopatie periferiche</li>
-          <li>Gestione integrata del <strong>piede diabetico</strong></li>
-          <li>Ultrasonografia vascolare (arteriosa e venosa)</li>
-          <li>Flebologia: varici, scleroterapia, termoablazioni</li>
-        </ul>
-
-        <h2>Attività scientifica</h2>
-        <ul>
-          <li>Relatore e partecipazione a congressi nazionali</li>
-          <li>Pubblicazioni/abstract selezionati</li>
+        <h2>Pubblicazioni</h2>
+        <ul class="pubs">
+          <li>2019 — Indocyanine Green Fluorescence Angiography for Evaluation of the Effects of Spinal Cord Stimulation to the Improvement of the Microperfusion in Patients With Peripheral Arterial Disease with no Revascularization Options. <a href="https://www.ejves.com/article/S1078-5884(19)31846-5/fulltext" target="_blank" rel="noopener">EJVES</a></li>
+          <li>2013 — Altered Metalloproteinase-9 expression as the least common denominator between Varicocele, Inguinal Hernia and Chronic Venous Disorders.</li>
+          <li>2013 — Low molecular weight heparin improves healing of chronic venous ulcers especially in the elderly.</li>
+          <li>2013 — Hyperhomocysteinaemia and chronic venous ulcers. <a href="https://pubmed.ncbi.nlm.nih.gov/24184457/" target="_blank" rel="noopener">PubMed</a></li>
+          <li>2013 — Doxycycline speeds up healing of chronic venous ulcers. <a href="https://pubmed.ncbi.nlm.nih.gov/23517508/" target="_blank" rel="noopener">PubMed</a></li>
+          <li>2013 — Cilostazol prevents foot ulcers in diabetic patients with peripheral vascular disease. <a href="https://pubmed.ncbi.nlm.nih.gov/23418772/" target="_blank" rel="noopener">PubMed</a></li>
         </ul>
       </div>
 
@@ -142,25 +161,64 @@ description: "Curriculum professionale del Dr. Domenico Marco Stillitano, chirur
         <h2>Dati sintetici</h2>
         <dl class="dl">
           <dt>Nome</dt><dd>Dr. Domenico Marco Stillitano</dd>
-          <dt>Specialità</dt><dd>Chirurgia vascolare ed endovascolare</dd>
-          <dt>Focus</dt><dd>Piede diabetico</dd>
-          <dt>Albo</dt><dd>—</dd>
-          <dt>Sedi</dt><dd>Monza, Milano</dd>
+          <dt>Nascita</dt><dd>19/07/1983</dd>
+          <dt>Nazionalità</dt><dd>Italiana</dd>
+          <dt>Email</dt><dd><a href="mailto:domenicomarco.stillitano@gmail.com">domenicomarco.stillitano@gmail.com</a></dd>
+          <dt>Sedi</dt><dd>Monza · Milano · Mannheim</dd>
+          <dt>Focus</dt><dd>Chirurgia vascolare ed endovascolare · Piede diabetico</dd>
         </dl>
 
+        <h2>Iscrizioni e abilitazioni</h2>
+        <div class="item">
+          <div class="when">06/2023 — Attuale · Reggio Calabria (Italia)</div>
+          <div class="what">Iscritto all’Ordine dei Medici — Provincia di Reggio Calabria</div>
+        </div>
+        <div class="item">
+          <div class="when">10/2014 — Attuale · Karlsruhe (Germania)</div>
+          <div class="what">Iscritto all’Ordine dei Medici — Nordbaden (Germania)</div>
+          <div class="where">Cap: 76137, Karlsruhe</div>
+        </div>
+        <div class="item">
+          <div class="when">24/10/2014 · Karlsruhe (Germania)</div>
+          <div class="what">Abilitazione all’esercizio (Germania) — Ordine del Nordbaden</div>
+        </div>
+        <div class="item">
+          <div class="when">02/2013 — 10/2014 · Reggio Calabria (Italia)</div>
+          <div class="what">Iscritto all’Ordine dei Medici — Provincia di Reggio Calabria</div>
+        </div>
+        <div class="item">
+          <div class="when">27/02/2013 · Reggio Calabria (Italia)</div>
+          <div class="what">Abilitazione all’esercizio (Italia) — Ordine della Provincia di Reggio Calabria</div>
+        </div>
+
+        <h2>Istruzione e formazione</h2>
+        <div class="item">
+          <div class="when">22/10/2012 · Catanzaro (Italia)</div>
+          <div class="what">Laurea in Medicina e Chirurgia</div>
+          <div class="where">Università Magna Graecia di Catanzaro</div>
+        </div>
+
         <h2>Lingue</h2>
+        <dl class="dl">
+          <dt>Italiano</dt><dd>Madrelingua</dd>
+          <dt>Tedesco</dt><dd>C2 (ascolto, lettura, interazione, produzione, scrittura)</dd>
+          <dt>Inglese</dt><dd>B2 (ascolto, lettura, interazione, produzione, scrittura)</dd>
+        </dl>
+
+        <h2>Competenze digitali</h2>
         <ul>
-          <li>Italiano (madrelingua)</li>
-          <li>Inglese</li>
+          <li>Pacchetto Office (Word, Excel, PowerPoint, …)</li>
+          <li>Gestione e-mail, Social network</li>
+          <li>Windows · Android</li>
+          <li>Orbis — RIS & PACS · Aycan</li>
+          <li>Key user SAP · Software ospedalieri</li>
         </ul>
 
-        <h2>Contatti</h2>
-        <p><strong>Tel:</strong> <a href="tel:+393758707109">+39 375 870 7109</a><br>
-        <strong>Email:</strong> <a href="mailto:domenicomarco.stillitano@gmail.com">domenicomarco.stillitano@gmail.com</a></p>
-        <div class="actions">
-          <a class="btn" href="tel:+393758707109">Chiama</a>
-          <a class="btn" href="https://wa.me/393758707109" target="_blank" rel="noopener">WhatsApp</a>
-        </div>
+        <h2>Affiliazioni e docenze</h2>
+        <ul>
+          <li>Membro: <em>Deutschen Gesellschaft für Gefäßchirurgie und Gefäßmedizin (DGG e.V.)</em></li>
+          <li>Docente di Chirurgia Vascolare — Scuola Vincent von Paul (Mannheim, Germania)</li>
+        </ul>
       </aside>
     </div>
   </main>
