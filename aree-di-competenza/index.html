@@ -5,13 +5,16 @@ subtitle: "Prestazioni e percorsi diagnostici in chirurgia vascolare ed endovasc
 permalink: /aree-di-competenza/
 ---
 
-<section class="hero" style="min-height:50vh; padding-top:80px;">
+<!-- Sezione HERO (stile coerente con la home, sfondo soft) -->
+<section class="hero" style="min-height:56vh; padding-top:80px; background:
+  radial-gradient(900px 600px at 82% 8%, rgba(16,185,129,.06), transparent 70%),
+  linear-gradient(#ffffff, #f7fbff);">
   <div class="container">
     <div class="grid" style="align-items:center;">
       <div class="copy reveal">
         <div class="kicker">Aree di competenza</div>
         <h1>Servizi specialistici in chirurgia vascolare</h1>
-        <p class="sub">Valutazioni cliniche, interventi endovascolari, gestione del piede diabetico e percorsi di follow-up personalizzati.</p>
+        <p class="sub">Valutazioni cliniche, terapie endovascolari, gestione del piede diabetico e percorsi di follow-up personalizzati.</p>
 
         <div class="cta">
           <a class="btn btn-primary" href="/prenota/">Prenota online</a>
@@ -20,71 +23,140 @@ permalink: /aree-di-competenza/
       </div>
 
       <figure class="hero-visual reveal" aria-hidden="true" title="Dr. Domenico Stillitano">
-        <!-- Sostituisci hero-aree.jpg con la tua immagine -->
         <img src="/assets/images/hero-aree.jpg" alt="Dr. Domenico Stillitano - Aree di competenza">
       </figure>
     </div>
   </div>
 </section>
 
-<section class="section" id="aree">
+<!-- SEZIONE AREE: cards evidenziate con indicatori colorati e CTA -->
+<section class="section" id="aree" style="background:linear-gradient(#fbfeff,#ffffff);">
   <div class="container">
     <h2 class="reveal">Principali aree di intervento</h2>
-    <p class="lead reveal">Di seguito una panoramica dei servizi offerti: dalla diagnosi precoce alle terapie endovascolari più avanzate, con particolare attenzione al paziente diabetico.</p>
+    <p class="lead reveal">Di seguito una panoramica dei servizi offerti. Ogni area ha un percorso diagnostico e terapeutico dedicato.</p>
 
-    <div class="cards" aria-hidden="false">
-      <article class="card reveal">
-        <div style="display:flex;gap:12px;align-items:center;">
-          <img src="/assets/images/area-1.jpg" alt="Ischemia" style="width:72px;height:72px;border-radius:12px;object-fit:cover;">
-          <div>
-            <h3>Ischemia cronica degli arti inferiori</h3>
-            <p class="muted">Valutazione clinica e strumentale, percorsi per rivascolarizzazione endovascolare o chirurgica.</p>
+    <div class="cards" aria-hidden="false" style="grid-template-columns:repeat(12,1fr); gap:1rem;">
+
+      <!-- CARD 1 -->
+      <article class="card reveal" style="display:flex;gap:16px;align-items:flex-start;">
+        <div style="width:88px;flex:0 0 88px;">
+          <div style="width:88px;height:88px;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);">
+            <img src="/assets/images/area-1.jpg" alt="Ischemia cronica" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+        </div>
+
+        <div style="flex:1;">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+            <div style="width:12px;height:36px;border-radius:6px;background:linear-gradient(180deg,#0ea5e9,#0284c7);box-shadow:0 6px 18px rgba(14,165,233,.08)"></div>
+            <h3 style="margin:0">Ischemia cronica degli arti inferiori</h3>
+          </div>
+
+          <p class="muted">Valutazione clinica e strumentale (Doppler, Angio-TC), indicazione alla rivascolarizzazione endovascolare o chirurgica quando necessaria.</p>
+
+          <div style="margin-top:12px;display:flex;gap:.6rem;flex-wrap:wrap;">
             <a class="btn btn-primary" href="/aree/ischemia-cronica/">Approfondisci</a>
+            <a class="btn" style="background:linear-gradient(180deg,#eaf3ff,#f4fbff); color:var(--blue-ink); border-color:#cfe3ff;" href="/prenota/">Prenota</a>
+            <a class="btn btn-secondary" style="background:linear-gradient(180deg,#f3fcf7,#e9fbf3); color:var(--green-ink); border-color:#c9f2e1;" href="https://wa.me/393758707109" target="_blank" rel="noopener">WhatsApp</a>
           </div>
         </div>
       </article>
 
-      <article class="card reveal">
-        <div style="display:flex;gap:12px;align-items:center;">
-          <img src="/assets/images/area-2.jpg" alt="Varici" style="width:72px;height:72px;border-radius:12px;object-fit:cover;">
-          <div>
-            <h3>Patologia varicosa e insufficienza venosa</h3>
-            <p class="muted">Diagnosi ecografica, terapie mini-invasive e percorsi di prevenzione.</p>
-            <a class="btn btn-primary" href="/aree/varici-insufficienza-venosa/">Approfondisci</a>
+      <!-- CARD 2 -->
+      <article class="card reveal" style="display:flex;gap:16px;align-items:flex-start;">
+        <div style="width:88px;flex:0 0 88px;">
+          <div style="width:88px;height:88px;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);">
+            <img src="/assets/images/area-2.jpg" alt="Varici" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+        </div>
+
+        <div style="flex:1;">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+            <div style="width:12px;height:36px;border-radius:6px;background:linear-gradient(180deg,#10b981,#059669);box-shadow:0 6px 18px rgba(16,185,129,.06)"></div>
+            <h3 style="margin:0">Patologia varicosa e insufficienza venosa</h3>
+          </div>
+
+          <p class="muted">Diagnosi ecografica duplex, trattamenti mini-invasivi (scleroterapia, laser, radiofrequenza) e percorsi di prevenzione.</p>
+
+          <div style="margin-top:12px;display:flex;gap:.6rem;flex-wrap:wrap;">
+            <a class="btn btn-primary" style="background:linear-gradient(180deg,#fff7ed,#fff2e6); color:#7a4b1b; border-color:#fde1c9;" href="/aree/varici-insufficienza-venosa/">Approfondisci</a>
+            <a class="btn" style="background:linear-gradient(180deg,#f6faff,#eaf3ff); color:var(--blue-ink); border-color:#cfe3ff;" href="/prenota/">Prenota</a>
+            <a class="btn btn-secondary" style="background:linear-gradient(180deg,#fff6f9,#fff0f6); color:#7a1740; border-color:#ffd7ea;" href="https://wa.me/393758707109" target="_blank" rel="noopener">WhatsApp</a>
           </div>
         </div>
       </article>
 
-      <article class="card reveal">
-        <div style="display:flex;gap:12px;align-items:center;">
-          <img src="/assets/images/area-3.jpg" alt="Piede diabetico" style="width:72px;height:72px;border-radius:12px;object-fit:cover;">
-          <div>
-            <h3>Piede diabetico e ulcerazioni</h3>
-            <p class="muted">Approccio multidisciplinare con rivascolarizzazione quando indicata e terapia locale avanzata.</p>
-            <a class="btn btn-primary" href="/aree/piede-diabetico/">Approfondisci</a>
+      <!-- CARD 3 -->
+      <article class="card reveal" style="display:flex;gap:16px;align-items:flex-start;">
+        <div style="width:88px;flex:0 0 88px;">
+          <div style="width:88px;height:88px;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);">
+            <img src="/assets/images/area-3.jpg" alt="Piede diabetico" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+        </div>
+
+        <div style="flex:1;">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+            <div style="width:12px;height:36px;border-radius:6px;background:linear-gradient(180deg,#f59e0b,#d97706);box-shadow:0 6px 18px rgba(245,158,11,.06)"></div>
+            <h3 style="margin:0">Piede diabetico e ulcerazioni</h3>
+          </div>
+
+          <p class="muted">Approccio multidisciplinare: valutazione vascolare, rivascolarizzazione quando indicata, terapia locale avanzata e follow-up dedicato.</p>
+
+          <div style="margin-top:12px;display:flex;gap:.6rem;flex-wrap:wrap;">
+            <a class="btn btn-primary" style="background:linear-gradient(180deg,#fffaf0,#fff6e6); color:#6a4a1f; border-color:#fde9c8;" href="/aree/piede-diabetico/">Approfondisci</a>
+            <a class="btn" style="background:linear-gradient(180deg,#f3fcf7,#e9fbf3); color:var(--green-ink); border-color:#c9f2e1;" href="/prenota/">Prenota</a>
+            <a class="btn btn-secondary" style="background:linear-gradient(180deg,#f6f8ff,#eef4ff); color:#153e75; border-color:#d7e6ff;" href="https://wa.me/393758707109" target="_blank" rel="noopener">WhatsApp</a>
           </div>
         </div>
       </article>
 
-      <!-- Aggiungi altre card come preferisci -->
+      <!-- CARD 4 -->
+      <article class="card reveal" style="display:flex;gap:16px;align-items:flex-start;">
+        <div style="width:88px;flex:0 0 88px;">
+          <div style="width:88px;height:88px;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);">
+            <img src="/assets/images/area-4.jpg" alt="Endovascolare" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+        </div>
+
+        <div style="flex:1;">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+            <div style="width:12px;height:36px;border-radius:6px;background:linear-gradient(180deg,#8b5cf6,#6d28d9);box-shadow:0 6px 18px rgba(139,92,246,.06)"></div>
+            <h3 style="margin:0">Procedure endovascolari</h3>
+          </div>
+
+          <p class="muted">Angioplastica, posizionamento di stent e terapie endoluminali per stenosi e ostruzioni arteriose, con percorsi in day-surgery quando possibile.</p>
+
+          <div style="margin-top:12px;display:flex;gap:.6rem;flex-wrap:wrap;">
+            <a class="btn btn-primary" style="background:linear-gradient(180deg,#f4f6ff,#eef3ff); color:#223a8a; border-color:#d5ddff;" href="/aree/endovascolare/">Approfondisci</a>
+            <a class="btn" style="background:linear-gradient(180deg,#f6faff,#eaf3ff); color:var(--blue-ink); border-color:#cfe3ff;" href="/prenota/">Prenota</a>
+            <a class="btn btn-secondary" style="background:linear-gradient(180deg,#fff5f8,#fff0f4); color:#a01f5a; border-color:#ffd7ea;" href="https://wa.me/393758707109" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>
 
-<section class="section contact" id="percorso">
+<!-- PERCORSO E CONTATTI -->
+<section class="section contact" id="percorso" style="padding-bottom:4rem;">
   <div class="container grid">
     <div class="box reveal">
       <h2>Come si svolge il percorso diagnostico-terapeutico</h2>
-      <p class="lead">Ogni paziente segue un percorso personalizzato: anamnesi, esami strumentali, proposta terapeutica e follow-up.</p>
+      <p class="lead">Ogni paziente segue un percorso personalizzato che può includere anamnesi, esami strumentali, consulenza multidisciplinare e pianificazione terapeutica.</p>
+      <ul>
+        <li>Valutazione clinica e raccolta anamnestica</li>
+        <li>Esami strumentali (ecocolordoppler, ABI, TC/RM se necessari)</li>
+        <li>Proposta terapeutica condivisa e follow-up programmato</li>
+      </ul>
     </div>
 
-    <div class="box reveal">
+    <div class="box reveal" id="prenota">
       <h2>Richiedi una prima valutazione</h2>
-      <p class="lead">Per prenotazioni e informazioni contatta lo studio.</p>
+      <p class="lead">Per prenotare una consulenza o richiedere informazioni contatta lo studio.</p>
 
       <div class="cta">
-        <a class="btn btn-primary" href="/prenota/">Prenota una visita</a>
-        <a class="btn btn-secondary" href="mailto:domenicomarco.stillitano@gmail.com">Scrivi via email</a>
+        <a class="btn btn-primary" href="tel:+393758707109">Chiama ora</a>
+        <a class="btn btn-secondary" href="https://wa.me/393758707109" target="_blank" rel="noopener">WhatsApp</a>
       </div>
     </div>
   </div>
@@ -95,7 +167,7 @@ permalink: /aree-di-competenza/
   "@context": "https://schema.org",
   "@type": "MedicalBusiness",
   "name": "Dr. Domenico Marco Stillitano",
-  "description": "Servizi di chirurgia vascolare ed endovascolare: ischemia degli arti, piede diabetico, varici.",
+  "description": "Servizi di chirurgia vascolare ed endovascolare: ischemia degli arti, piede diabetico, varici, diagnostica vascolare.",
   "url": "{{ site.url }}{{ page.url }}",
   "telephone": "+393758707109",
   "address": {
