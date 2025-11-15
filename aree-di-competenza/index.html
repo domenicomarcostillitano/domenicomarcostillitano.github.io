@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Aree di competenza — Preview</title>
 
-  <!-- Web font (graceful fallback to system fonts) -->
+  <!-- Web font (fallback to system fonts) -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
@@ -21,6 +21,7 @@
       --radius:14px;
       --max-width:1100px;
       --container-padding:24px;
+      --nav-break:780px;
     }
 
     *{box-sizing:border-box}
@@ -28,7 +29,40 @@
 
     .container{max-width:var(--max-width);margin:0 auto;padding:48px var(--container-padding);}
 
-    /* HERO */
+    /* ===== HEADER / NAV ===== */
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      background: rgba(255,255,255,0.7); /* subtle */
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border-bottom: 1px solid rgba(15,23,42,0.03);
+    }
+    header .container { display:flex; align-items:center; gap:16px; padding:18px var(--container-padding); }
+    .brand { display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--heading); font-weight:700; }
+    .brand img { height:40px; width:auto; display:block; border-radius:8px; }
+
+    /* menu layout */
+    nav.header-nav { margin-left:auto; display:flex; align-items:center; gap:12px; }
+    .header-menu-list { list-style:none; margin:0; padding:0; display:flex; gap:8px; align-items:center; }
+    .header-menu-list li { margin:0; }
+    .header-menu-list a { color:var(--heading); text-decoration:none; display:inline-block; padding:8px 12px; border-radius:8px; font-size:15px; line-height:1.25; }
+    .header-menu-list a:hover { background: rgba(15,23,42,0.04); }
+
+    /* hamburger toggle (hidden on desktop) */
+    .menu-toggle { display:none; border:0; background:transparent; padding:8px; cursor:pointer; margin-left:8px; }
+    .menu-toggle .bar { display:block; width:22px; height:2px; background:var(--heading); margin:4px 0; border-radius:2px; transition: transform .18s ease, opacity .18s ease; }
+
+    /* when open: animate */
+    .menu-toggle.open .bar:nth-child(1){ transform: translateY(6px) rotate(45deg); }
+    .menu-toggle.open .bar:nth-child(2){ opacity:0; }
+    .menu-toggle.open .bar:nth-child(3){ transform: translateY(-6px) rotate(-45deg); }
+
+    /* Protect nav from overflowing */
+    nav, .header-nav, .header-menu-list { max-width: 100%; box-sizing: border-box; -webkit-overflow-scrolling: touch; }
+
+    /* ===== HERO (unchanged) ===== */
     .hero{min-height:56vh;padding-top:80px;padding-bottom:28px;background:radial-gradient(900px 600px at 82% 8%, rgba(16,185,129,.04), transparent 70%), linear-gradient(#ffffff,#f7fbff);}
     .grid{display:flex;gap:32px;align-items:center;flex-wrap:wrap}
 
@@ -40,7 +74,7 @@
     .hero-visual{flex:0 0 420px;display:block;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);background:linear-gradient(180deg,#f8fafc,#ffffff);}
     .hero-visual img{width:100%;height:100%;object-fit:cover;display:block}
 
-    /* SECTION AREE */
+    /* SECTION AREE (unchanged) */
     .section{padding:44px 0}
     .section h2{font-family:Nunito, Inter, sans-serif;font-size:26px;margin:0 0 8px 0}
     .lead{color:var(--muted);margin:0 0 18px 0}
@@ -57,20 +91,30 @@
     .card h3{margin:0;font-size:16px}
     .muted{color:var(--muted);line-height:1.45;margin-top:8px}
 
-    /* accent bar next to titles */
     .accent{width:12px;height:36px;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,.04)}
 
-    /* contact / percorso */
     .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:18px}
     .box{background:var(--card);padding:20px;border-radius:12px;box-shadow:var(--shadow)}
     .box h2{margin-top:0}
     .box a{color:var(--accent-blue);text-decoration:none}
 
-    /* responsive tweaks */
+    /* responsive tweaks (unchanged) */
     @media (max-width:780px){
       h1{font-size:26px}
       .hero-visual{flex-basis:100%;order:2}
       .copy{order:1}
+    }
+
+    /* ===== Responsive nav behavior: hide nav on small screens, show when .open ===== */
+    @media (max-width: var(--nav-break)) {
+      .menu-toggle { display:inline-flex; align-items:center; justify-content:center; }
+      /* hide the nav by default on small screens (we show toggle) */
+      nav.header-nav { display:none; margin-left:0; }
+      /* when nav has class .open we show it as block */
+      nav.header-nav.open { display:block; width:100%; margin-top:8px; background:var(--card); padding:12px; border-radius:10px; box-shadow:var(--shadow); }
+      nav.header-nav.open .header-menu-list { display:block; }
+      nav.header-nav.open .header-menu-list li { display:block; margin:6px 0; }
+      nav.header-nav.open .header-menu-list a { display:block; width:100%; padding:10px 12px; }
     }
 
     /* small utility */
@@ -78,6 +122,47 @@
   </style>
 </head>
 <body>
+
+  <!-- HEADER: menu identico alla home con hamburger -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <a class="brand" href="/" aria-label="Home">
+        <!-- Se hai un logo, sostituisci src con il percorso corretto -->
+        <img src="https://domenicomarcostillitano.it/assets/images/logo.png" alt="Logo" onerror="this.style.display='none'"/>
+        <span style="display:inline-block;line-height:1;">Dr. D. M. Stillitano</span>
+      </a>
+
+      <button class="menu-toggle" aria-label="Apri menu" aria-expanded="false" aria-controls="main-nav">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <nav id="main-nav" class="header-nav" role="navigation" aria-label="Menu principale">
+        <ul class="header-menu-list">
+          <!-- Jekyll loop (se il sito è Jekyll): -->
+          {%- raw -%}
+          {%- for p in site.pages -%}
+            {%- if p.nav == true -%}
+              <li><a href="{{ p.url | relative_url }}">{{ p.title }}</a></li>
+            {%- endif -%}
+          {%- endfor -%}
+          {%- endraw -%}
+
+          <!--
+            Fallback hardcoded links (uncomment se il sito NON usa Jekyll).
+            Basta cancellare i commenti <!--  --> su queste righe e adattare gli href.
+          -->
+          <!--
+          <li><a href="/">Home</a></li>
+          <li><a href="/aree-di-competenza/">Aree di competenza</a></li>
+          <li><a href="/percorsi/">Percorsi</a></li>
+          <li><a href="/contatti/">Contatti</a></li>
+          -->
+        </ul>
+      </nav>
+    </div>
+  </header>
 
   <main>
     <section class="hero">
@@ -207,5 +292,56 @@
 
   </main>
 
+  <!-- Menu toggle script (minimo) -->
+  <script>
+    (function(){
+      var toggle = document.querySelector('.menu-toggle');
+      var nav = document.querySelector('#main-nav');
+
+      if (!toggle || !nav) return;
+
+      // chiudi nav all'inizio su mobile
+      if (window.innerWidth <= 780) {
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded','false');
+      }
+
+      toggle.addEventListener('click', function(e){
+        e.preventDefault();
+        var isOpen = nav.classList.toggle('open');
+        toggle.classList.toggle('open', isOpen);
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        // se necessario rimuovere overflow orizzontale:
+        if (isOpen) {
+          nav.style.maxWidth = '100%';
+        } else {
+          nav.style.maxWidth = '';
+        }
+      });
+
+      // chiudi il menu quando si ridimensiona a desktop
+      window.addEventListener('resize', function(){
+        if (window.innerWidth > 780 && nav.classList.contains('open')) {
+          nav.classList.remove('open');
+          toggle.classList.remove('open');
+          toggle.setAttribute('aria-expanded','false');
+          nav.style.maxWidth = '';
+        }
+      });
+
+      // chiudi cliccando fuori (mobile)
+      document.addEventListener('click', function(ev){
+        if (window.innerWidth <= 780 && nav.classList.contains('open')) {
+          var isInside = nav.contains(ev.target) || toggle.contains(ev.target);
+          if (!isInside) {
+            nav.classList.remove('open');
+            toggle.classList.remove('open');
+            toggle.setAttribute('aria-expanded','false');
+            nav.style.maxWidth = '';
+          }
+        }
+      }, true);
+    })();
+  </script>
 </body>
 </html>
