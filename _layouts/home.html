@@ -14,6 +14,72 @@
     Se hai CSS globali, includili qui:
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   {%- endcomment -%}
+  <style>
+html { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: inherit; }
+
+nav, .site-nav, .main-menu, .header-nav, .nav-wrapper {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: visible;
+  -webkit-overflow-scrolling: touch;
+}
+
+nav a, .site-nav a, .main-menu a {
+  white-space: normal !important;
+  word-break: break-word !important;
+  display: inline-block;
+  padding: 10px 12px;
+  box-sizing: border-box;
+}
+
+.header-menu-list, .nav-list, .menu__list, .main-menu__list {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 6px;
+  align-items: center;
+}
+
+.header, .site-header, .header.sticky, .header.fixed, .site-header.sticky {
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  box-sizing: border-box;
+}
+
+.header[style*="transform"], .header[style*="left"], .header[style*="right"],
+nav[style*="transform"], nav[style*="left"], nav[style*="right"] {
+  transform: none !important;
+  left: 0 !important;
+  right: 0 !important;
+}
+
+nav img, .site-nav img, .main-menu img {
+  max-width: 100%;
+  height: auto;
+  display: inline-block;
+}
+
+@media (max-width: 780px) {
+  .header .container, .site-header .container {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .header-menu-list, .nav-list, .main-menu__list {
+    display: block !important;
+  }
+  .header-menu-list li, .nav-list li, .main-menu__list li {
+    display: block;
+    margin: 6px 0;
+  }
+
+  nav a, .site-nav a, .main-menu a {
+    display: block;
+    padding: 12px 10px;
+  }
+}
+</style>
 </head>
 <body>
   {{ content }}
