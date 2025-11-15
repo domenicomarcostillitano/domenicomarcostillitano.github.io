@@ -10,219 +10,87 @@
     <link rel="icon" href="{{ site.favicon }}">
   {%- endif -%}
 
-  <!-- Web fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
-
   {%- comment -%}
-    Se in futuro vuoi includere un CSS globale, puoi rimuovere lo style inline
-    e inserire qui il link al file:
+    Se in futuro vuoi usare un CSS esterno globale, puoi aggiungere:
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   {%- endcomment -%}
 
+  <!-- FIX MINIMO E SICURO PER IL MENU MOBILE:
+       Questo CSS è volutamente limitato e NON riscrive il tema.
+       Protegge solo contro l'overflow orizzontale del menu su smartphone. -->
   <style>
-    /* ==========================
-       RESET + THEME VARIABLES
-       ========================== */
-    :root{
-      --bg:#f7fbff;
-      --card:#ffffff;
-      --muted:#6b7280;
-      --accent-blue:#0ea5e9;
-      --accent-teal:#10b981;
-      --accent-warm:#f59e0b;
-      --heading:#0f172a;
-      --shadow: 0 8px 28px rgba(15,23,42,.06);
-      --radius:14px;
-      --container-max:1100px;
-      --container-pad:24px;
-    }
+    :root { --fixnav-break:780px; }
 
-    html { box-sizing: border-box; font-family: Inter, Nunito, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+    /* Sicurezza box-sizing */
+    html { box-sizing: border-box; }
     *, *::before, *::after { box-sizing: inherit; }
-    body{ margin:0; background: linear-gradient(180deg,var(--bg),#ffffff); color:var(--heading); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
 
-    .container{ max-width:var(--container-max); margin:0 auto; padding:48px var(--container-pad); }
-
-    /* ==========================
-       HEADER / NAV
-       ========================== */
-    header.site-header{
-      background: transparent;
-      position: sticky;
-      top:0;
-      z-index:50;
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
-    }
-    .site-header .container{ display:flex; align-items:center; gap:18px; padding-top:18px; padding-bottom:18px; }
-
-    .brand { display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--heading); font-weight:700; }
-    .brand img { height:40px; width:auto; display:block; border-radius:8px; }
-
-    /* nav wrapper */
-    nav.header-nav { margin-left:auto; display:flex; align-items:center; gap:12px; }
-
-    /* menu list - horizontal by default */
-    .header-menu-list, .nav-list, .main-menu__list {
-      list-style:none; margin:0; padding:0; display:flex; gap:8px; align-items:center;
-    }
-    .header-menu-list li{ margin:0; }
-    .header-menu-list a, nav a {
-      color:var(--heading); text-decoration:none; display:inline-block; padding:8px 12px; border-radius:8px;
-      font-size:16px; line-height:1.25;
-    }
-    .header-menu-list a:hover { background: rgba(15,23,42,0.04); }
-
-    /* hamburger toggle - hidden on desktop */
-    .menu-toggle { display:none; background:transparent; border:0; cursor:pointer; padding:8px; margin-left:8px; }
-    .menu-toggle .bar{ display:block; width:22px; height:2px; background:var(--heading); margin:4px 0; border-radius:2px; transition:transform .18s ease, opacity .18s ease; }
-
-    /* ==========================
-       HERO + CONTENT (light styling)
-       ========================== */
-    .hero{ min-height:56vh; padding-top:80px; padding-bottom:36px; background: radial-gradient(900px 600px at 82% 8%, rgba(16,185,129,.04), transparent 70%), linear-gradient(#ffffff,#f7fbff); }
-    .hero .grid{ display:flex; gap:32px; align-items:center; flex-wrap:wrap; }
-    .hero .copy{ flex:1 1 420px; }
-    .kicker{ font-weight:700; color:var(--accent-teal); text-transform:uppercase; letter-spacing:.06em; margin-bottom:8px; font-size:12px; }
-    h1{ margin:0 0 12px 0; font-size:34px; line-height:1.05; font-weight:700; }
-    .sub{ margin:0; color:var(--muted); font-size:16px; }
-
-    .hero-visual{ flex:0 0 420px; border-radius:18px; overflow:hidden; box-shadow:var(--shadow); background:linear-gradient(180deg,#f8fafc,#ffffff); }
-    .hero-visual img{ width:100%; height:100%; object-fit:cover; display:block; }
-
-    /* section + cards */
-    .section{ padding:44px 0; }
-    .cards{ display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap:18px; margin-top:18px; }
-    .card{ background:var(--card); padding:18px; border-radius:12px; display:flex; gap:16px; align-items:flex-start; box-shadow:var(--shadow); transition:transform .18s ease, box-shadow .18s ease; }
-    .card:hover{ transform:translateY(-6px); box-shadow:0 18px 36px rgba(15,23,42,.08); }
-    .card-thumb{ width:88px; flex:0 0 88px; }
-    .img-wrap{ width:88px; height:88px; border-radius:12px; overflow:hidden; border:1px solid rgba(15,23,42,.04); }
-    .img-wrap img{ width:100%; height:100%; object-fit:cover; display:block; }
-    .muted{ color:var(--muted); line-height:1.45; margin-top:8px; }
-
-    /* contact boxes */
-    .contact-grid{ display:grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap:18px; margin-top:18px; }
-    .box{ background:var(--card); padding:20px; border-radius:12px; box-shadow:var(--shadow); }
-
-    /* ==========================
-       RESPONSIVE MENU FIXES + FLUID FONT
-       ========================== */
-
-    /* General nav responsiveness and overflow protection */
+    /* Protezione generica: non tocca colori/spacing globali del tema */
     nav, .site-nav, .main-menu, .header-nav, .nav-wrapper {
-      width: 100% !important;
-      max-width: 100% !important;
+      max-width: 100%;
+      width: 100%;
       overflow: visible;
       -webkit-overflow-scrolling: touch;
     }
-    nav img, .site-nav img, .main-menu img { max-width:100%; height:auto; display:inline-block; }
 
-    /* Fluid font for menu items: scales smoothly */
-    nav a,
+    /* Mantieni il layout delle liste, ma permetti wrapping quando serve */
+    header nav ul,
+    .header-nav ul,
+    .site-nav ul,
+    nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 100%;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    /* Link nel menu: evita che esplodano la larghezza del contenitore */
+    header nav a,
+    .header-nav a,
     .site-nav a,
-    .main-menu a,
-    .header-menu-list a {
-      font-size: clamp(13px, 1.6vw, 16px) !important;
-      line-height: 1.25;
+    nav a {
+      max-width: 100%;
       display: inline-block;
-      padding: 10px 12px !important;
-      box-sizing: border-box;
-      white-space: nowrap; /* prefer single-line when space allows */
+      white-space: normal;
+      word-break: break-word;
+      text-overflow: ellipsis;
     }
 
-    /* fallback: allow wrapping if needed */
-    .header-menu-list, .nav-list, .main-menu__list {
-      display:flex !important;
-      flex-wrap: nowrap;
-      gap:6px;
-      align-items:center;
+    /* Riduzione molto leggera su telefoni molto piccoli */
+    @media (max-width: 480px) {
+      header nav a,
+      .header-nav a,
+      .site-nav a,
+      nav a {
+        font-size: 14px;
+        padding: 6px 8px;
+      }
     }
 
-    /* Ensure sticky headers occupy full width */
-    .header, .site-header, .header.sticky, .header.fixed, .site-header.sticky {
-      left: 0 !important;
-      right: 0 !important;
-      width: 100% !important;
-      box-sizing: border-box;
-    }
-
-    /* Protect against inline transform/left/right set by JS */
+    /* Protezione contro script che applicano transform/left/right inline */
     .header[style*="transform"], .header[style*="left"], .header[style*="right"],
     nav[style*="transform"], nav[style*="left"], nav[style*="right"] {
       transform: none !important;
       left: 0 !important;
       right: 0 !important;
     }
-
-    /* MOBILE: switch to hamburger + column when opening */
-    @media (max-width: 780px) {
-
-      /* show toggle */
-      .menu-toggle { display:inline-flex; align-items:center; justify-content:center; }
-
-      /* hide nav by default on small screens */
-      nav.header-nav, .header-nav, nav, .main-menu {
-        display: none;
-        width:100%;
-      }
-
-      /* when nav has .open class -> show block column */
-      nav.open, .header-nav.open, .main-menu.open {
-        display:block !important;
-        background: var(--card);
-        padding:12px;
-        border-radius:10px;
-        box-shadow:var(--shadow);
-        margin-top:8px;
-      }
-
-      .header-menu-list, .nav-list, .main-menu__list { display:block !important; }
-      .header-menu-list li, .nav-list li, .main-menu__list li { display:block; margin:6px 0; }
-      nav.open a, .header-nav.open a, .main-menu.open a { display:block !important; width:100%; padding:10px 12px !important; }
-
-      /* more compact spacing */
-      nav a, .site-nav a, .main-menu a, .header-menu-list a {
-        padding: 8px 10px !important;
-        font-size: clamp(12px, 2.2vw, 14px) !important;
-      }
-
-      .site-header .container { padding-left: 12px; padding-right: 12px; }
-    }
-
-    @media (max-width: 480px) {
-      nav a, .site-nav a, .main-menu a, .header-menu-list a {
-        padding:7px 8px !important;
-        font-size: 13px !important;
-      }
-      h1{ font-size:24px; }
-    }
-
-    /* small utility */
-    .muted-small{ color:var(--muted); font-size:14px; }
-
   </style>
 </head>
 <body>
-
-  <!-- HEADER -->
+  <!-- HEADER: manteniamo la struttura semplice e compatibile con Jekyll -->
   <header class="site-header" role="banner">
     <div class="container">
       <a class="brand" href="{{ '/' | relative_url }}">
         {%- if site.logo -%}
-          <img src="{{ site.logo | relative_url }}" alt="{{ site.title }}">
+          <img src="{{ site.logo | relative_url }}" alt="{{ site.title }}" style="height:40px;display:block;">
         {%- else -%}
-          <span>{{ site.title }}</span>
+          <span style="font-weight:700;">{{ site.title }}</span>
         {%- endif -%}
       </a>
 
-      <!-- Menu toggle (visible on mobile) -->
-      <button class="menu-toggle" aria-label="Apri menu" aria-expanded="false" aria-controls="main-nav" title="Apri menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
-
-      <!-- Navigation: we try to render a simple nav from pages that have `nav: true` -->
+      <!-- Nav (lascia il loop come nel tema originale; puoi anche inserire link statici) -->
       <nav id="main-nav" class="header-nav" role="navigation" aria-label="Menu principale">
         <ul class="header-menu-list">
           {%- for p in site.pages -%}
@@ -230,92 +98,46 @@
               <li><a href="{{ p.url | relative_url }}">{{ p.title }}</a></li>
             {%- endif -%}
           {%- endfor -%}
-          {%- comment -%}
-            If you prefer to hardcode links, replace the loop with <li><a href="/aree-di-competenza/">Aree di competenza</a></li> etc.
-          {%- endcomment -%}
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- PAGE CONTENT -->
+  <!-- CONTENUTO DELLA PAGINA -->
   <main role="main">
     {{ content }}
   </main>
 
-  <!-- FOOTER (minimal) -->
-  <footer style="padding:28px 0; background:transparent;">
-    <div class="container muted-small">
+  <!-- FOOTER minimale -->
+  <footer style="padding:28px 0;">
+    <div class="container" style="color:#6b7280;font-size:14px;">
       © {{ site.time | date: "%Y" }} {{ site.title }} — Tutti i diritti riservati.
     </div>
   </footer>
 
-  <!-- JS: menu toggle + protective fixes -->
+  <!-- JS PROTETTIVO (micro-fix): non modifica comportamento, solo assicura maxWidth header/nav -->
   <script>
-    (function(){
-      // select toggle and nav (tries several fallbacks)
-      var toggle = document.querySelector('.menu-toggle');
-      var nav = document.querySelector('#main-nav') || document.querySelector('nav.header-nav') || document.querySelector('nav') || document.querySelector('.header-nav') || document.querySelector('.main-menu');
+    document.addEventListener("DOMContentLoaded", function() {
+      try {
+        var header = document.querySelector("header.site-header, header");
+        var nav = document.querySelector("header nav, #main-nav, .header-nav, .site-nav, nav");
 
-      function fixStickyHeaderAll(){
-        var headers = document.querySelectorAll('.site-header, .header, .header.sticky, .header.fixed');
-        headers.forEach(function(h){
-          h.style.left = '0';
-          h.style.right = '0';
-          h.style.width = '100%';
-          h.style.boxSizing = 'border-box';
-          h.style.transform = 'none';
-        });
-      }
-
-      // quick protective fix on load & resize
-      window.addEventListener('load', fixStickyHeaderAll);
-      window.addEventListener('resize', fixStickyHeaderAll);
-
-      if (!toggle || !nav) {
-        // If there is no toggle or no nav, still return after applying fixes
-        return;
-      }
-
-      // Ensure nav starts hidden on small screens (if CSS expects it)
-      if (window.innerWidth <= 780) {
-        nav.classList.remove('open');
-        toggle.setAttribute('aria-expanded','false');
-      }
-
-      toggle.addEventListener('click', function(e){
-        e.preventDefault();
-        var isOpen = nav.classList.toggle('open');
-        toggle.classList.toggle('open', isOpen);
-        nav.setAttribute('aria-hidden', !isOpen ? 'true' : 'false');
-        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      });
-
-      // close nav if we resize to desktop
-      window.addEventListener('resize', function(){
-        if (window.innerWidth > 780) {
-          nav.classList.remove('open');
-          toggle.classList.remove('open');
-          toggle.setAttribute('aria-expanded','false');
-          nav.removeAttribute('aria-hidden');
+        if (header) {
+          header.style.left = header.style.left || '';
+          header.style.right = header.style.right || '';
+          header.style.width = header.style.width || '';
+          // non forziamo valori; teniamo la possibilità al tema di gestire lo sticky
         }
-      });
-
-      // optional: close nav when clicking outside (mobile)
-      document.addEventListener('click', function(ev){
-        if (window.innerWidth <= 780 && nav.classList.contains('open')) {
-          var isClickInside = nav.contains(ev.target) || toggle.contains(ev.target);
-          if (!isClickInside) {
-            nav.classList.remove('open');
-            toggle.classList.remove('open');
-            toggle.setAttribute('aria-expanded','false');
-            nav.setAttribute('aria-hidden','true');
-          }
+        if (nav) {
+          // solo sicurezza: non forziamo display, limitiamo la larghezza massima
+          nav.style.maxWidth = nav.style.maxWidth || '100%';
         }
-      }, true);
-
-    })();
+      } catch (e) {
+        // non fare nulla in caso di errore
+        console.warn('Fix nav script error', e);
+      }
+    });
   </script>
-
 </body>
 </html>
+---
