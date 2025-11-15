@@ -1,159 +1,211 @@
----
-layout: page
-title: "Aree di competenza"
-subtitle: "Prestazioni e percorsi diagnostici in chirurgia vascolare ed endovascolare"
-permalink: /aree-di-competenza/
----
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Aree di competenza — Preview</title>
 
-<!-- HERO -->
-<section class="hero" style="min-height:56vh; padding-top:80px; background:
-  radial-gradient(900px 600px at 82% 8%, rgba(16,185,129,.06), transparent 70%),
-  linear-gradient(#ffffff, #f7fbff);">
-  <div class="container">
-    <div class="grid" style="align-items:center;">
-      <div class="copy reveal">
-        <div class="kicker">Aree di competenza</div>
-        <h1>Servizi specialistici in chirurgia vascolare</h1>
-        <p class="sub">Valutazioni cliniche, terapie endovascolari, gestione del piede diabetico e percorsi di follow-up personalizzati.</p>
+  <!-- Web font (graceful fallback to system fonts) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#f7fbff;
+      --card:#ffffff;
+      --muted:#6b7280; /* gray-600 */
+      --accent-blue:#0ea5e9; /* for subtle accents */
+      --accent-teal:#10b981;
+      --accent-warm:#f59e0b;
+      --heading:#0f172a; /* dark navy */
+      --shadow: 0 8px 28px rgba(15, 23, 42, 0.06);
+      --radius:14px;
+      --max-width:1100px;
+      --container-padding:24px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg),#ffffff);font-family:Inter, Nunito, system-ui, -apple-system, "Segoe UI", Roboto, 'Helvetica Neue', Arial; color:var(--heading);}
+
+    .container{max-width:var(--max-width);margin:0 auto;padding:48px var(--container-padding);}
+
+    /* HERO */
+    .hero{min-height:56vh;padding-top:80px;padding-bottom:28px;background:radial-gradient(900px 600px at 82% 8%, rgba(16,185,129,.04), transparent 70%), linear-gradient(#ffffff,#f7fbff);}
+    .grid{display:flex;gap:32px;align-items:center;flex-wrap:wrap}
+
+    .copy{flex:1 1 420px}
+    .kicker{font-weight:700;color:var(--accent-teal);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;font-size:13px}
+    h1{margin:0 0 12px 0;font-size:34px;line-height:1.05;font-weight:700;color:var(--heading);}
+    .sub{margin:0;color:var(--muted);font-size:16px;line-height:1.5}
+
+    .hero-visual{flex:0 0 420px;display:block;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);background:linear-gradient(180deg,#f8fafc,#ffffff);}
+    .hero-visual img{width:100%;height:100%;object-fit:cover;display:block}
+
+    /* SECTION AREE */
+    .section{padding:44px 0}
+    .section h2{font-family:Nunito, Inter, sans-serif;font-size:26px;margin:0 0 8px 0}
+    .lead{color:var(--muted);margin:0 0 18px 0}
+
+    .cards{display:grid;grid-template-columns:repeat(auto-fit, minmax(320px,1fr));gap:18px;margin-top:18px}
+
+    .card{background:var(--card);padding:18px;border-radius:12px;display:flex;gap:16px;align-items:flex-start;box-shadow:var(--shadow);transition:transform .18s ease,box-shadow .18s ease}
+    .card:hover{transform:translateY(-6px);box-shadow:0 18px 36px rgba(15,23,42,.08)}
+
+    .card-thumb{width:88px;flex:0 0 88px}
+    .card-thumb .img-wrap{width:88px;height:88px;border-radius:12px;overflow:hidden;border:1px solid rgba(15,23,42,.04)}
+    .card-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+
+    .card h3{margin:0;font-size:16px}
+    .muted{color:var(--muted);line-height:1.45;margin-top:8px}
+
+    /* accent bar next to titles */
+    .accent{width:12px;height:36px;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,.04)}
+
+    /* contact / percorso */
+    .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:18px}
+    .box{background:var(--card);padding:20px;border-radius:12px;box-shadow:var(--shadow)}
+    .box h2{margin-top:0}
+    .box a{color:var(--accent-blue);text-decoration:none}
+
+    /* responsive tweaks */
+    @media (max-width:780px){
+      h1{font-size:26px}
+      .hero-visual{flex-basis:100%;order:2}
+      .copy{order:1}
+    }
+
+    /* small utility */
+    .muted-small{color:var(--muted);font-size:14px}
+  </style>
+</head>
+<body>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="grid">
+          <div class="copy">
+            <div class="kicker">Aree di competenza</div>
+            <h1>Servizi specialistici in chirurgia vascolare</h1>
+            <p class="sub">Valutazioni cliniche, terapie endovascolari, gestione del piede diabetico e percorsi di follow-up personalizzati.</p>
+          </div>
+
+          <figure class="hero-visual" aria-hidden="true" title="Dr. Domenico Stillitano">
+            <img src="https://domenicomarcostillitano.it/assets/images/hero-2.jpg" alt="Medico durante una consulenza">
+          </figure>
+        </div>
       </div>
+    </section>
 
-      <figure class="hero-visual reveal" aria-hidden="true" title="Dr. Domenico Stillitano">
-        <!-- Immagine hero (Unsplash stock) -->
-        <img src="https://domenicomarcostillitano.it/assets/images/hero-2.jpg" alt="Medico durante una consulenza">
-      </figure>
-    </div>
-  </div>
-</section>
+    <section class="section" id="aree">
+      <div class="container">
+        <h2>Principali aree di intervento</h2>
+        <p class="lead">Di seguito una panoramica dei servizi offerti. Ogni area ha un percorso diagnostico e terapeutico dedicato.</p>
 
-<!-- AREE -->
-<section class="section" id="aree" style="background:linear-gradient(#fbfeff,#ffffff);">
-  <div class="container">
-    <h2 class="reveal">Principali aree di intervento</h2>
-    <p class="lead reveal">Di seguito una panoramica dei servizi offerti. Ogni area ha un percorso diagnostico e terapeutico dedicato.</p>
+        <div class="cards" aria-hidden="false">
 
-    <div class="cards" aria-hidden="false" style="grid-template-columns:repeat(12,1fr); gap:1rem;">
+          <!-- CARD 1: Ischemia -->
+          <article class="card">
+            <div class="card-thumb">
+              <div class="img-wrap">
+                <img src="https://domenicomarcostillitano.it/assets/images/gambe1.jpg" alt="Visita vascolare">
+              </div>
+            </div>
 
-      <!-- CARD 1: Ischemia -->
-      <article class="card reveal" style="display:flex;gap:16px;align-items:flex-start;">
-        <div style="width:88px;flex:0 0 88px;">
-          <div style="width:88px;height:88px;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);">
-            <!-- Unsplash: vascular/clinic portrait -->
-            <img src="https://domenicomarcostillitano.it/assets/images/gambe1.jpg" alt="Visita vascolare" style="width:100%;height:100%;object-fit:cover;">
-          </div>
+            <div style="flex:1">
+              <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+                <div class="accent" style="background:linear-gradient(180deg,var(--accent-blue),#0284c7)"></div>
+                <h3>Ischemia cronica degli arti inferiori</h3>
+              </div>
+
+              <p class="muted">Valutazione clinica e strumentale (Doppler, Angio-TC), percorsi per la rivascolarizzazione endovascolare o chirurgica quando indicata. Interventi pensati per migliorare la perfusione e la qualità di vita.</p>
+            </div>
+          </article>
+
+          <!-- CARD 2: Varici -->
+          <article class="card">
+            <div class="card-thumb">
+              <div class="img-wrap">
+                <img src="https://domenicomarcostillitano.it/assets/images/vene.jpg" alt="Trattamento varici">
+              </div>
+            </div>
+
+            <div style="flex:1">
+              <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+                <div class="accent" style="background:linear-gradient(180deg,var(--accent-teal),#059669)"></div>
+                <h3>Patologia varicosa e insufficienza venosa</h3>
+              </div>
+
+              <p class="muted">Diagnosi ecografica duplex, trattamenti mini-invasivi (scleroterapia, laser, radiofrequenza) e percorsi di prevenzione mirati alla riduzione delle recidive e delle complicanze.</p>
+            </div>
+          </article>
+
+          <!-- CARD 3: Piede diabetico -->
+          <article class="card">
+            <div class="card-thumb">
+              <div class="img-wrap">
+                <img src="https://domenicomarcostillitano.it/assets/images/ChatGPT-Image-15-nov-2025,-08_41_40.gif" alt="Cura piede diabetico">
+              </div>
+            </div>
+
+            <div style="flex:1">
+              <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+                <div class="accent" style="background:linear-gradient(180deg,var(--accent-warm),#d97706)"></div>
+                <h3>Piede diabetico e ulcerazioni</h3>
+              </div>
+
+              <p class="muted">Approccio multidisciplinare per la prevenzione e il trattamento delle lesioni: valutazione vascolare, terapie locali avanzate e programmi di follow-up dedicati.</p>
+            </div>
+          </article>
+
+          <!-- CARD 4: Procedure endovascolari -->
+          <article class="card">
+            <div class="card-thumb">
+              <div class="img-wrap">
+                <img src="https://domenicomarcostillitano.it/assets/images/ChatGPT-Image-15-nov-2025,-08_46_34.gif" alt="Procedure endovascolari">
+              </div>
+            </div>
+
+            <div style="flex:1">
+              <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+                <div class="accent" style="background:linear-gradient(180deg,#8b5cf6,#6d28d9)"></div>
+                <h3>Procedure endovascolari</h3>
+              </div>
+
+              <p class="muted">Angioplastica, posizionamento di stent e interventi endoluminali per stenosi e ostruzioni arteriose, con percorsi organizzati in day-surgery ove indicato.</p>
+            </div>
+          </article>
+
         </div>
-
-        <div style="flex:1;">
-          <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
-            <div style="width:12px;height:36px;border-radius:6px;background:linear-gradient(180deg,#0ea5e9,#0284c7);box-shadow:0 6px 18px rgba(14,165,233,.08)"></div>
-            <h3 style="margin:0">Ischemia cronica degli arti inferiori</h3>
-          </div>
-
-          <p class="muted">Valutazione clinica e strumentale (Doppler, Angio-TC), percorsi per la rivascolarizzazione endovascolare o chirurgica quando indicata. Interventi pensati per migliorare la perfusione e la qualità di vita.</p>
-        </div>
-      </article>
-
-      <!-- CARD 2: Varici -->
-      <article class="card reveal" style="display:flex;gap:16px;align-items:flex-start;">
-        <div style="width:88px;flex:0 0 88px;">
-          <div style="width:88px;height:88px;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);">
-            <!-- Unsplash: legs/clinic -->
-            <img src="https://domenicomarcostillitano.it/assets/images/vene.jpg" alt="Trattamento varici" style="width:100%;height:100%;object-fit:cover;">
-          </div>
-        </div>
-
-        <div style="flex:1;">
-          <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
-            <div style="width:12px;height:36px;border-radius:6px;background:linear-gradient(180deg,#10b981,#059669);box-shadow:0 6px 18px rgba(16,185,129,.06)"></div>
-            <h3 style="margin:0">Patologia varicosa e insufficienza venosa</h3>
-          </div>
-
-          <p class="muted">Diagnosi ecografica duplex, trattamenti mini-invasivi (scleroterapia, laser, radiofrequenza) e percorsi di prevenzione mirati alla riduzione delle recidive e delle complicanze.</p>
-        </div>
-      </article>
-
-      <!-- CARD 3: Piede diabetico -->
-      <article class="card reveal" style="display:flex;gap:16px;align-items:flex-start;">
-        <div style="width:88px;flex:0 0 88px;">
-          <div style="width:88px;height:88px;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);">
-            <!-- Unsplash: wound care / clinic -->
-            <img src="https://domenicomarcostillitano.it/assets/images/ChatGPT-Image-15-nov-2025,-08_41_40.gif" alt="Cura piede diabetico" style="width:100%;height:100%;object-fit:cover;">
-          </div>
-        </div>
-
-        <div style="flex:1;">
-          <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
-            <div style="width:12px;height:36px;border-radius:6px;background:linear-gradient(180deg,#f59e0b,#d97706);box-shadow:0 6px 18px rgba(245,158,11,.06)"></div>
-            <h3 style="margin:0">Piede diabetico e ulcerazioni</h3>
-          </div>
-
-          <p class="muted">Approccio multidisciplinare per la prevenzione e il trattamento delle lesioni: valutazione vascolare, terapie locali avanzate e programmi di follow-up dedicati.</p>
-        </div>
-      </article>
-
-      <!-- CARD 4: Procedure endovascolari -->
-      <article class="card reveal" style="display:flex;gap:16px;align-items:flex-start;">
-        <div style="width:88px;flex:0 0 88px;">
-          <div style="width:88px;height:88px;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);">
-            <!-- Unsplash: operating / endovascular -->
-            <img src="https://domenicomarcostillitano.it/assets/images/ChatGPT-Image-15-nov-2025,-08_46_34.gif" alt="Procedure endovascolari" style="width:100%;height:100%;object-fit:cover;">
-          </div>
-        </div>
-
-        <div style="flex:1;">
-          <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
-            <div style="width:12px;height:36px;border-radius:6px;background:linear-gradient(180deg,#8b5cf6,#6d28d9);box-shadow:0 6px 18px rgba(139,92,246,.06)"></div>
-            <h3 style="margin:0">Procedure endovascolari</h3>
-          </div>
-
-          <p class="muted">Angioplastica, posizionamento di stent e interventi endoluminali per stenosi e ostruzioni arteriose, con percorsi organizzati in day-surgery ove indicato.</p>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- PERCORSO E CONTATTI -->
-<section class="section contact" id="percorso" style="padding-bottom:4rem;">
-  <div class="container grid">
-    <div class="box reveal">
-      <h2>Come si svolge il percorso diagnostico-terapeutico</h2>
-      <p class="lead">Ogni paziente segue un percorso personalizzato che può includere anamnesi, esami strumentali, consulenza multidisciplinare e pianificazione terapeutica.</p>
-      <ul>
-        <li>Valutazione clinica e raccolta anamnestica</li>
-        <li>Esami strumentali (ecocolordoppler, ABI, TC/RM se necessari)</li>
-        <li>Proposta terapeutica condivisa e follow-up programmato</li>
-      </ul>
-    </div>
-
-    <div class="box reveal">
-      <h2>Contatti</h2>
-      <p class="lead">Per informazioni e prenotazioni contattare lo studio.</p>
-      <div style="margin-top:8px">
-        <strong>Telefono:</strong> <a href="tel:+393758707109">+39 375 870 7109</a><br>
-        <strong>Email:</strong> <a href="mailto:domenicomarco.stillitano@gmail.com">domenicomarco.stillitano@gmail.com</a><br>
-        <strong>Indirizzo:</strong> Politerapico di Monza — Via Gerolamo Borgazzi, 87B, 20900 Monza (MB)
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- Simple structured data -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "MedicalBusiness",
-  "name": "Dr. Domenico Marco Stillitano",
-  "description": "Servizi di chirurgia vascolare ed endovascolare: ischemia degli arti, piede diabetico, varici, diagnostica vascolare.",
-  "url": "{{ site.url }}{{ page.url }}",
-  "telephone": "+393758707109",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Via Gerolamo Borgazzi, 87B",
-    "addressLocality": "Monza",
-    "postalCode": "20900",
-    "addressRegion": "MB",
-    "addressCountry": "IT"
-  }
-}
-</script>
+    <section class="section contact" id="percorso">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="box">
+            <h2>Come si svolge il percorso diagnostico-terapeutico</h2>
+            <p class="lead">Ogni paziente segue un percorso personalizzato che può includere anamnesi, esami strumentali, consulenza multidisciplinare e pianificazione terapeutica.</p>
+            <ul>
+              <li>Valutazione clinica e raccolta anamnestica</li>
+              <li>Esami strumentali (ecocolordoppler, ABI, TC/RM se necessari)</li>
+              <li>Proposta terapeutica condivisa e follow-up programmato</li>
+            </ul>
+          </div>
+
+          <div class="box">
+            <h2>Contatti</h2>
+            <p class="lead">Per informazioni e prenotazioni contattare lo studio.</p>
+            <div style="margin-top:8px">
+              <strong>Telefono:</strong> <a href="tel:+393758707109">+39 375 870 7109</a><br>
+              <strong>Email:</strong> <a href="mailto:domenicomarco.stillitano@gmail.com">domenicomarco.stillitano@gmail.com</a><br>
+              <strong>Indirizzo:</strong> Politerapico di Monza — Via Gerolamo Borgazzi, 87B, 20900 Monza (MB)
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>
