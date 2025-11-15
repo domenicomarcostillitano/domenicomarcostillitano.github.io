@@ -1,143 +1,21 @@
 ---
+---
 <!doctype html>
 <html lang="it">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>{{ page.title | default: site.title }}</title>
+  <title>{{ page.title }}</title>
   <meta name="description" content="{{ page.description | default: site.description }}">
   {%- if site.favicon -%}
     <link rel="icon" href="{{ site.favicon }}">
   {%- endif -%}
-
   {%- comment -%}
-    Se in futuro vuoi usare un CSS esterno globale, puoi aggiungere:
+    Se hai CSS globali, includili qui:
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   {%- endcomment -%}
-
-  <!-- FIX MINIMO E SICURO PER IL MENU MOBILE:
-       Questo CSS è volutamente limitato e NON riscrive il tema.
-       Protegge solo contro l'overflow orizzontale del menu su smartphone. -->
-  <style>
-    :root { --fixnav-break:780px; }
-
-    /* Sicurezza box-sizing */
-    html { box-sizing: border-box; }
-    *, *::before, *::after { box-sizing: inherit; }
-
-    /* Protezione generica: non tocca colori/spacing globali del tema */
-    nav, .site-nav, .main-menu, .header-nav, .nav-wrapper {
-      max-width: 100%;
-      width: 100%;
-      overflow: visible;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    /* Mantieni il layout delle liste, ma permetti wrapping quando serve */
-    header nav ul,
-    .header-nav ul,
-    .site-nav ul,
-    nav ul {
-      display: flex;
-      flex-wrap: wrap;
-      max-width: 100%;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    /* Link nel menu: evita che esplodano la larghezza del contenitore */
-    header nav a,
-    .header-nav a,
-    .site-nav a,
-    nav a {
-      max-width: 100%;
-      display: inline-block;
-      white-space: normal;
-      word-break: break-word;
-      text-overflow: ellipsis;
-    }
-
-    /* Riduzione molto leggera su telefoni molto piccoli */
-    @media (max-width: 480px) {
-      header nav a,
-      .header-nav a,
-      .site-nav a,
-      nav a {
-        font-size: 14px;
-        padding: 6px 8px;
-      }
-    }
-
-    /* Protezione contro script che applicano transform/left/right inline */
-    .header[style*="transform"], .header[style*="left"], .header[style*="right"],
-    nav[style*="transform"], nav[style*="left"], nav[style*="right"] {
-      transform: none !important;
-      left: 0 !important;
-      right: 0 !important;
-    }
-  </style>
 </head>
 <body>
-  <!-- HEADER: manteniamo la struttura semplice e compatibile con Jekyll -->
-  <header class="site-header" role="banner">
-    <div class="container">
-      <a class="brand" href="{{ '/' | relative_url }}">
-        {%- if site.logo -%}
-          <img src="{{ site.logo | relative_url }}" alt="{{ site.title }}" style="height:40px;display:block;">
-        {%- else -%}
-          <span style="font-weight:700;">{{ site.title }}</span>
-        {%- endif -%}
-      </a>
-
-      <!-- Nav (lascia il loop come nel tema originale; puoi anche inserire link statici) -->
-      <nav id="main-nav" class="header-nav" role="navigation" aria-label="Menu principale">
-        <ul class="header-menu-list">
-          {%- for p in site.pages -%}
-            {%- if p.nav == true -%}
-              <li><a href="{{ p.url | relative_url }}">{{ p.title }}</a></li>
-            {%- endif -%}
-          {%- endfor -%}
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <!-- CONTENUTO DELLA PAGINA -->
-  <main role="main">
-    {{ content }}
-  </main>
-
-  <!-- FOOTER minimale -->
-  <footer style="padding:28px 0;">
-    <div class="container" style="color:#6b7280;font-size:14px;">
-      © {{ site.time | date: "%Y" }} {{ site.title }} — Tutti i diritti riservati.
-    </div>
-  </footer>
-
-  <!-- JS PROTETTIVO (micro-fix): non modifica comportamento, solo assicura maxWidth header/nav -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      try {
-        var header = document.querySelector("header.site-header, header");
-        var nav = document.querySelector("header nav, #main-nav, .header-nav, .site-nav, nav");
-
-        if (header) {
-          header.style.left = header.style.left || '';
-          header.style.right = header.style.right || '';
-          header.style.width = header.style.width || '';
-          // non forziamo valori; teniamo la possibilità al tema di gestire lo sticky
-        }
-        if (nav) {
-          // solo sicurezza: non forziamo display, limitiamo la larghezza massima
-          nav.style.maxWidth = nav.style.maxWidth || '100%';
-        }
-      } catch (e) {
-        // non fare nulla in caso di errore
-        console.warn('Fix nav script error', e);
-      }
-    });
-  </script>
+  {{ content }}
 </body>
 </html>
----
